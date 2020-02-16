@@ -1,0 +1,12 @@
+{
+	"onMapChange": true,
+	"changeEveryTp": false,
+	"cycleTime": 90000,
+	"blendTime": 8,
+	"mode": "random",
+	"activePreset": "super",
+	"printName": false,
+	"hideComments": true,
+	"dungeon": "bl",
+	"dungeonblacklist": []
+}

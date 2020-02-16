@@ -1,0 +1,64 @@
+{
+    "normal": {
+        "random": true,
+        "aeros": "all",
+        "description":"Random all, using config values"
+    },
+    "fast": {
+        "random": true,
+        "aeros": "all",
+        "cycleTime": 30000,
+        "blendTime": 6,
+        "description":"Random all, 30s aero time, 6 blending time"
+    },
+    "faster": {
+        "random": true,
+        "aeros": "all",
+        "cycleTime": 10000,
+        "blendTime": 3,
+        "description":"Random all, 10s aero time, 3 blending time"
+    },
+    "super": {
+        "random": true,
+        "aeros": "all",
+        "cycleTime": 2000,
+        "blendTime": 1,
+        "description":"Random all, 2s aero time, 1 blending time"
+    },
+    "hyper": {
+        "random": true,
+        "aeros": "all",
+        "cycleTime": 500,
+        "blendTime": 1,
+        "message": "HYPER PRESET: USE AT YOUR OWN RISK, MIGHT CAUSE LAG OR INSTABILITY!! \"aero off\" to disable!",
+        "description":"Random all, 0.5s aero time, 1 blending time "
+    },
+    "classic": {
+        "random": false,
+        "aeros": [
+            "VK_Aeroset.VK_SkyCastle00_AERO",
+            "aen_aeroset.AERO.Serpent_Island_AERO_FINAL",
+            "aen_aeroset.AERO.AEN_C_Misty_Island_Outdoor_AERO",
+            "RNW_Aeroset_Various.AERO.Sunset_AERO",
+            "atw_aeroset.AERO.SPR_Dawn_Garden_02_AERO",
+            "lobby_ch_select_aero.AERO.Lobby_CH_Select_AERO_Night_02"
+        ],
+        "cycleTime": 120000,
+        "blendTime": 110,
+        "description": "Classic day/night cycle by Pentagon"
+    },
+    "order":{
+        "random": false,
+        "aeros": "all",
+        "description":"All in order, print names",
+        "printName":true,
+        "hideComments":true
+    },
+    "rn":{
+        "random": true,
+        "aeros": "all",
+        "description":"Random all, print names",
+        "printName":true,
+        "hideComments":true
+    }
+}
