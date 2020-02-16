@@ -8,8 +8,7 @@
 		},
 		"index.js": "36381badde954c43bfea32209b5752a9c43c3158370524ed466dd29082af626b",
 		"module.json": "8104bf92374545c92bb657b0b69aa1b5da6c134a48fb3a221c77dc5a64daf074",
-		"presets.json": "3361cc00fcca3c505c6ea03a6843ae333be2d384caa9bf3a6f37cb7fa3e0c78c",
-		"readme.md": "2d24ed2d6482c8a6e647c811e167d313a194876c61fc89b141bdbf23f2e31815"
+		"presets.json": "3361cc00fcca3c505c6ea03a6843ae333be2d384caa9bf3a6f37cb7fa3e0c78c"
 	},
 	"defs": {
 		"S_AERO": 1,
