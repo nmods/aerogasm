@@ -19,7 +19,9 @@ module.exports = function Aerogasm(mod) {
 	let comments = require('./comments.json')
 	let presets = require('./presets.json')
 
-	mod.game.on('leave_loading_screen', start, true)
+	mod.game.on('leave_loading_screen', () => {
+		start(true)
+	})
 
 	if (mod.game.state == 2) start(true)
 
@@ -85,7 +87,7 @@ module.exports = function Aerogasm(mod) {
 		return Math.floor(Math.random() * (max - min) + min)
 	}
 
-	function start(presetMessage, insta = false) {
+	function start(insta = false, presetMessage=false) {
 		mod.clearInterval(aeroInterval)
 		loadPreset(presetMessage)
 		if (!config.dungeon && mod.game.me.inDungeon) return
@@ -275,7 +277,7 @@ module.exports = function Aerogasm(mod) {
 					config.activePreset = args[1]
 					command.message(`Preset changed to: ${config.activePreset}`)
 					clearAero()
-					start(true)
+					start(false,true)
 				} else if (args[1]) {
 					if (args[1] == 'list') {
 						command.message('List of presets:')
