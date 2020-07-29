@@ -197,6 +197,7 @@ module.exports = function Aerogasm(mod) {
 				command.message(`cycleTime is ${cycleTime}`)
 				command.message(`blendTime is ${blendTime}`)
 				command.message(`Current aero is ${currentAero}`)
+				console.log(`Current aero is ${currentAero}`)
 				command.message(`printName: ${printName}`)
 				command.message(`hideComments: ${hideComments}`)
 				if (Object.keys(comments).includes(currentAero)) {
