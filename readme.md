@@ -55,6 +55,9 @@ All commands go in toolbox channel `/8` and start with `aero`
 &emsp;&emsp;- `super`: super fast  
 &emsp;&emsp;- `hyper`: unstable fast  
 &emsp;&emsp;- `order`: all aeros in order  
+&emsp;&emsp;- `dynamicdaysaltyweather`: [dynamic-day](https://github.com/SaltyMonkey/dynamic-day) by saltymonkey (weather version)  
+&emsp;&emsp;- `dynamicdaysalty`: [dynamic-day](https://github.com/SaltyMonkey/dynamic-day) by saltymonkey  
+&emsp;&emsp;- `dynamicday`: edited version of above  
 
 `dungeon` - toggle dungeon mode on/off  
 `dungeon bl` - enable dungeon blacklist  
@@ -130,11 +133,20 @@ see aeros.json for names of all aeros
 
 </td>
 </tr>
-</table
+</table>
 
 </details>
 
+## Changelog
+<details>
 
+#### 1.1 (current)
+- load aeros from datacenter using toolbox
+- add presets for [dynamic-day](https://github.com/SaltyMonkey/dynamic-day)
+- some fixes
+#### 1.0
+- released
+</details>
 
 ---
 Original idea from [codeagon's cycles](https://github.com/codeagon/cycles)

@@ -1,8 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-const aero = require('./aeros.json')
-
 module.exports = function Aerogasm(mod) {
 	const command = mod.command || mod.require.command
 	let aeroInterval = null,
@@ -13,19 +11,23 @@ module.exports = function Aerogasm(mod) {
 		blendTime,
 		cycleTime,
 		printName,
-		hideComments
+		hideComments,
+		aero = []
 
 	let config = require('./config.json');
 	let comments = require('./comments.json')
 	let presets = require('./presets.json')
 
-	mod.game.on('leave_loading_screen', () => {
+	mod.hook('C_LOAD_TOPO_FIN', 'event', () => {
 		start(true)
 	})
 
-	if (mod.game.state == 2) start(true)
+	if (mod.game.state == 2) {
+		start(true)
+	}
 
 	function aeroSwitch(aero, forceBlendTime = -1) {
+		//console.log(`aeroSwitch, forceblend: ${forceBlendTime}, aero: ${aero}`)
 		let sendBlend = blendTime
 		if (forceBlendTime >= 0) sendBlend = forceBlendTime
 		mod.toClient('S_AERO', 1, {
@@ -41,6 +43,19 @@ module.exports = function Aerogasm(mod) {
 		if (!['preset', 'manual'].includes(config.mode)) {
 			currentAero = newRandomAero()
 		} else if (config.mode == 'preset') {
+			if (currentPreset.segments) {
+				let hourNow = new Date().getHours()
+				let currentSegment = null
+				let lastSegment = currentPreset.segments[0]
+				for (let seg of currentPreset.segments) {
+					if (seg.startHour <= hourNow) currentSegment = seg
+					if (seg.startHour>lastSegment.startHour) lastSegment = seg
+				}
+				if (currentSegment == null) currentSegment = lastSegment
+				currentPreset.aeros = currentSegment.aeros
+				//mod.log(`Hour: ${hourNow}, currentSegment: ${currentSegment.name}`)
+			}
+
 			if (currentPreset.random && currentPreset.aeros.length > 0) {
 				if (currentPreset.aeros == 'all') currentAero = newRandomAero()
 				else currentAero = random(currentPreset.aeros)
@@ -59,8 +74,8 @@ module.exports = function Aerogasm(mod) {
 		if (config.mode != 'manual' && !hideComments) {
 			command.message(`Aero comments: ${comments[currentAero].join(' - ')}`)
 		}
-		mod.setTimeout(aeroSwitch, 1, currentAero, forceBlendTime);
-		mod.setTimeout(aeroSwitch, 2000, currentAero, forceBlendTime);
+		mod.setTimeout(aeroSwitch, 600, currentAero, forceBlendTime);
+		//mod.setTimeout(aeroSwitch, 1000, currentAero, forceBlendTime);
 	}
 
 	function newRandomAero() {
@@ -87,13 +102,16 @@ module.exports = function Aerogasm(mod) {
 		return Math.floor(Math.random() * (max - min) + min)
 	}
 
-	function start(insta = false, presetMessage=false) {
-		mod.clearInterval(aeroInterval)
+	async function start(insta = false, presetMessage = false) {
+		//console.log("start, insta: " + insta)
+		if (aero.length == 0) aero = await loadAeros()
+		mod.clearInterval(aeroInterval) 
 		loadPreset(presetMessage)
 		if (!config.dungeon && mod.game.me.inDungeon) return
-		timer()
+		if(config.mode=="preset" && currentAero && insta && !currentPreset.changeEveryLoad) mod.setTimeout(aeroSwitch, 600, currentAero, 0);
+		else timer(insta ? 0 : undefined)
 		if (['random', 'preset'].includes(config.mode)) {
-			aeroInterval = mod.setInterval(timer, cycleTime, insta ? 0 : undefined)
+			aeroInterval = mod.setInterval(timer, cycleTime)
 		}
 	}
 
@@ -199,7 +217,7 @@ module.exports = function Aerogasm(mod) {
 				command.message(`cycleTime is ${cycleTime}`)
 				command.message(`blendTime is ${blendTime}`)
 				command.message(`Current aero is ${currentAero}`)
-				console.log(`Current aero is ${currentAero}`)
+				mod.log(`Current aero is ${currentAero}`)
 				command.message(`printName: ${printName}`)
 				command.message(`hideComments: ${hideComments}`)
 				if (Object.keys(comments).includes(currentAero)) {
@@ -277,7 +295,7 @@ module.exports = function Aerogasm(mod) {
 					config.activePreset = args[1]
 					command.message(`Preset changed to: ${config.activePreset}`)
 					clearAero()
-					start(false,true)
+					start(false, true)
 				} else if (args[1]) {
 					if (args[1] == 'list') {
 						command.message('List of presets:')
@@ -344,6 +362,17 @@ module.exports = function Aerogasm(mod) {
 						break
 				}
 				break
+			case 'test':
+				loadAeros()
+				console.log("aero length: " + aero.length)
+				// mod.queryData('/ResourceSummary/Package/AeroSet',[],true,false,['name']).then(result => {
+				// 	let aerolist = []
+				// 	for(let obj of result){
+				// 		aerolist.push(obj.attributes.name)
+				// 	}
+				// 	console.log(aerolist)
+				// })
+				break
 			default:
 				command.message(`Invalid command: ${args.join(' ')}`)
 				return
@@ -351,6 +380,14 @@ module.exports = function Aerogasm(mod) {
 		saveConfig()
 	});
 
+	async function loadAeros() {
+		let aerolist = []
+		let result = await mod.queryData('/ResourceSummary/Package/AeroSet', [], true, false, ['name'])
+		for (let obj of result) {
+			aerolist.push(obj.attributes.name)
+		}
+		return aerolist
+	}
 
 	function saveConfig() {
 		fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config, null, '\t'), err => { });
@@ -361,7 +398,6 @@ module.exports = function Aerogasm(mod) {
 
 	this.destructor = () => {
 		command.remove(['aero'])
-		mod.game.off('leave_loading_screen', start)
 		mod.clearInterval(aeroInterval)
 	};
 };

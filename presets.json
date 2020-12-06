@@ -1,64 +1,262 @@
 {
-    "normal": {
-        "random": true,
-        "aeros": "all",
-        "description":"Random all, using config values"
-    },
-    "fast": {
-        "random": true,
-        "aeros": "all",
-        "cycleTime": 30000,
-        "blendTime": 6,
-        "description":"Random all, 30s aero time, 6 blending time"
-    },
-    "faster": {
-        "random": true,
-        "aeros": "all",
-        "cycleTime": 10000,
-        "blendTime": 3,
-        "description":"Random all, 10s aero time, 3 blending time"
-    },
-    "super": {
-        "random": true,
-        "aeros": "all",
-        "cycleTime": 2000,
-        "blendTime": 1,
-        "description":"Random all, 2s aero time, 1 blending time"
-    },
-    "hyper": {
-        "random": true,
-        "aeros": "all",
-        "cycleTime": 500,
-        "blendTime": 1,
-        "message": "HYPER PRESET: USE AT YOUR OWN RISK, MIGHT CAUSE LAG OR INSTABILITY!! \"aero off\" to disable!",
-        "description":"Random all, 0.5s aero time, 1 blending time "
-    },
-    "classic": {
-        "random": false,
-        "aeros": [
-            "VK_Aeroset.VK_SkyCastle00_AERO",
-            "aen_aeroset.AERO.Serpent_Island_AERO_FINAL",
-            "aen_aeroset.AERO.AEN_C_Misty_Island_Outdoor_AERO",
-            "RNW_Aeroset_Various.AERO.Sunset_AERO",
-            "atw_aeroset.AERO.SPR_Dawn_Garden_02_AERO",
-            "lobby_ch_select_aero.AERO.Lobby_CH_Select_AERO_Night_02"
-        ],
-        "cycleTime": 120000,
-        "blendTime": 110,
-        "description": "Classic day/night cycle by Pentagon"
-    },
-    "order":{
-        "random": false,
-        "aeros": "all",
-        "description":"All in order, print names",
-        "printName":true,
-        "hideComments":true
-    },
-    "rn":{
-        "random": true,
-        "aeros": "all",
-        "description":"Random all, print names",
-        "printName":true,
-        "hideComments":true
-    }
+	"normal": {
+		"random": true,
+		"aeros": "all",
+		"description": "Random all, using config values"
+	},
+	"fast": {
+		"random": true,
+		"aeros": "all",
+		"cycleTime": 30000,
+		"blendTime": 6,
+		"description": "Random all, 30s aero time, 6 blending time"
+	},
+	"faster": {
+		"random": true,
+		"aeros": "all",
+		"cycleTime": 10000,
+		"blendTime": 3,
+		"description": "Random all, 10s aero time, 3 blending time"
+	},
+	"super": {
+		"random": true,
+		"aeros": "all",
+		"cycleTime": 2000,
+		"blendTime": 1,
+		"description": "Random all, 2s aero time, 1 blending time"
+	},
+	"hyper": {
+		"random": true,
+		"aeros": "all",
+		"cycleTime": 500,
+		"blendTime": 0.5,
+		"message": "HYPER PRESET: USE AT YOUR OWN RISK, MIGHT CAUSE LAG OR INSTABILITY!! \"aero off\" to disable!",
+		"description": "Random all, 0.5s aero time, 0.5 blending time "
+	},
+	"classic": {
+		"random": false,
+		"aeros": [
+			"VK_Aeroset.VK_SkyCastle00_AERO",
+			"aen_aeroset.AERO.Serpent_Island_AERO_FINAL",
+			"aen_aeroset.AERO.AEN_C_Misty_Island_Outdoor_AERO",
+			"RNW_Aeroset_Various.AERO.Sunset_AERO",
+			"atw_aeroset.AERO.SPR_Dawn_Garden_02_AERO",
+			"lobby_ch_select_aero.AERO.Lobby_CH_Select_AERO_Night_02"
+		],
+		"cycleTime": 120000,
+		"blendTime": 110,
+		"description": "Classic day/night cycle by Pentagon"
+	},
+	"order": {
+		"random": false,
+		"aeros": "all",
+		"description": "All in order, print names",
+		"printName": true,
+		"hideComments": true
+	},
+	"rn": {
+		"random": true,
+		"aeros": "all",
+		"description": "Random all, print names",
+		"printName": true,
+		"hideComments": true
+	},
+	"dynamicdaysalty": {
+		"random": true,
+		"segments": [
+			{
+				"name": "Morning",
+				"startHour": 5,
+				"aeros": [
+					"mix_pic_aero.MIX_PIC_Sky_Aeroset",
+					"Kubel_Fortress_AERO.AERO.Kubel_Fotress_path02",
+					"atw_aeroset.AERO.SPR_Dawn_Garden_01_AERO",
+					"EX_Union_AERO.AERO.ASW.EX_ASW_C_CE_AERO",
+					"Liar_AERO.AERO.Liar_AERO",
+					"Liar_AERO.AERO.Liar_AERO_02",
+					"anc_aeroset.AERO.SPR_Hookian_Swamp_AERO_FINAL",
+					"aen_aeroset.AERO.JUG_Misty_Island_02_AERO"
+				]
+			},
+			{
+				"name": "Day",
+				"startHour": 11,
+				"aeros": [
+					"Roundup_Hunting_AERO.AERO.Roundup_Hunting_AERO",
+					"A_Island_Aeroset.AERO.A_Island_02_AERO",
+					"aen_aeroset.AERO.JungleCoast_AERO_c_FINAL",
+					"Basement_AERO.AERO.Basement_Outside_AERO"
+				]
+			},
+			{
+				"name": "Evening",
+				"startHour": 17,
+				"aeros": [
+					"EX01_SWN_SD.AERO.EX01_SWN_SD_AEROSET",
+					"EX01_ATW_Start_Aeroset.AERO.EX01_ATW_Start_01_Inner_AERO",
+					"A_Island_Aeroset.AERO.A_Island_SD_AERO",
+					"Liar_AERO.AERO.Liar_AERO_02",
+					"aen_aeroset.AERO.JUG_Misty_Island_02_AERO"
+				]
+			},
+			{
+				"name": "Night",
+				"startHour": 23,
+				"aeros": [
+					"ase_aeroset.AERO.ASE_B_MoonCastle_AERO",
+					"EX01_VK_DailyQuest.AERO.VK_DailyQuest_AERO",
+					"EX01_VK_DailyQuest_Aeroset.AERO.VK_DailyQuest_02_AERO",
+					"Laknan_Aeroset.AERO.Laknan_1F_FINAL_AERO",
+					"Durion_Aero.AERO.Durion_01Named_AERO"
+				]
+			}
+		],
+		"cycleTime": 1800000,
+		"blendTime": 5,
+		"changeEveryLoad": false,
+		"description": "Day/night cycle from dynamic-day by saltymonkey"
+	},
+	"dynamicdaysaltyweather": {
+		"random": true,
+		"segments": [
+			{
+				"name": "Morning",
+				"startHour": 5,
+				"aeros": [
+					"mix_pic_aero.MIX_PIC_Sky_Aeroset",
+					"Kubel_Fortress_AERO.AERO.Kubel_Fotress_path02",
+					"atw_aeroset.AERO.SPR_Dawn_Garden_01_AERO",
+					"EX_Union_AERO.AERO.ASW.EX_ASW_C_CE_AERO",
+					"Liar_AERO.AERO.Liar_AERO",
+					"Liar_AERO.AERO.Liar_AERO_02",
+					"HWC_C_DarkRift_AeroSet.AERO.HWC_C_DarkRift01_AERO",
+					"Caliban_AEROSet.AERO.Caliban_Ext_Boss_AERO",
+					"anc_aeroset.AERO.SPR_Hookian_Swamp_AERO_FINAL",
+					"BF_snowBattle_aeroset.AERO.BF_snowBattle_renew_AERO",
+					"aen_aeroset.AERO.JUG_Misty_Island_02_AERO"
+				]
+			},
+			{
+				"name": "Day",
+				"startHour": 11,
+				"aeros": [
+					"Roundup_Hunting_AERO.AERO.Roundup_Hunting_AERO",
+					"A_Island_Aeroset.AERO.A_Island_02_AERO",
+					"aen_aeroset.AERO.JungleCoast_AERO_c_FINAL",
+					"Basement_AERO.AERO.Basement_Outside_AERO",
+					"RNC_aeroset.AERO.RNC_Inside_AERO",
+					"HWC_C_DarkRift_AeroSet.AERO.HWC_C_DarkRift01_AERO",
+					"HWC_AEROSet.AERO.HWC_B_ICE_Plain_OLD_b_AERO",
+					"Caliban_AEROSet.AERO.Caliban_Ext_Boss_AERO",
+					"BF_snowBattle_aeroset.AERO.BF_snowBattle_renew_AERO",
+					"EX01_ATW_Start_Aeroset.AERO.EX01_ATW_Start_01_Rain_A_AERO"
+				]
+			},
+			{
+				"name": "Evening",
+				"startHour": 17,
+				"aeros": [
+					"EX01_SWN_SD.AERO.EX01_SWN_SD_AEROSET",
+					"EX01_ATW_Start_Aeroset.AERO.EX01_ATW_Start_01_Inner_AERO",
+					"A_Island_Aeroset.AERO.A_Island_SD_AERO",
+					"Liar_AERO.AERO.Liar_AERO_02",
+					"RNC_aeroset.AERO.RNC_Inside_AERO",
+					"HWC_C_DarkRift_AeroSet.AERO.HWC_C_DarkRift01_AERO",
+					"HWC_AEROSet.AERO.ICE_ICE_Plain2_renew_AERO",
+					"Caliban_AEROSet.AERO.Caliban_Ext_Boss_AERO",
+					"EX01_ATW_Start_Aeroset.AERO.EX01_ATW_Start_01_Rain_A_AERO",
+					"aen_aeroset.AERO.JUG_Misty_Island_02_AERO"
+				]
+			},
+			{
+				"name": "Night",
+				"startHour": 23,
+				"aeros": [
+					"ase_aeroset.AERO.ASE_B_MoonCastle_AERO",
+					"EX01_VK_DailyQuest.AERO.VK_DailyQuest_AERO",
+					"EX01_VK_DailyQuest_Aeroset.AERO.VK_DailyQuest_02_AERO",
+					"Laknan_Aeroset.AERO.Laknan_1F_FINAL_AERO",
+					"Durion_Aero.AERO.Durion_01Named_AERO",
+					"HWC_C_DarkRift_AeroSet.AERO.HWC_C_DarkRift01_AERO",
+					"EX01_ATW_Start_Aeroset.AERO.EX01_ATW_Start_01_Rain_A_AERO"
+				]
+			}
+		],
+		"cycleTime": 1800000,
+		"blendTime": 5,
+		"changeEveryLoad": false,
+		"description": "Day/night cycle from dynamic-day by saltymonkey (weather version)"
+	},
+	"dynamicday": {
+		"random": true,
+		"segments": [
+			{
+				"name": "Morning",
+				"startHour": 5,
+				"aeros": [
+					"mix_pic_aero.MIX_PIC_Sky_Aeroset",
+					"Kubel_Fortress_AERO.AERO.Kubel_Fotress_path02",
+					"atw_aeroset.AERO.SPR_Dawn_Garden_01_AERO",
+					"EX_Union_AERO.AERO.ASW.EX_ASW_C_CE_AERO",
+					"Liar_AERO.AERO.Liar_AERO",
+					"Liar_AERO.AERO.Liar_AERO_02",
+					"anc_aeroset.AERO.SPR_Hookian_Swamp_AERO_FINAL",
+					"aen_aeroset.AERO.JUG_Misty_Island_02_AERO"
+				]
+			},
+			{
+				"name": "Day",
+				"startHour": 11,
+				"aeros": [
+					"Roundup_Hunting_AERO.AERO.Roundup_Hunting_AERO",
+					"A_Island_Aeroset.AERO.A_Island_02_AERO",
+					"aen_aeroset.AERO.JungleCoast_AERO_c_FINAL",
+					"Basement_AERO.AERO.Basement_Outside_AERO",
+					"acn_aeroset.AERO.SPR_Corruption_AERO_New",
+					"hec_aeroset.AERO.TRP_Dagon_Aero"
+				]
+			},
+			{
+				"name": "Evening",
+				"startHour": 17,
+				"aeros": [
+					"EX01_SWN_SD.AERO.EX01_SWN_SD_AEROSET",
+					"EX01_ATW_Start_Aeroset.AERO.EX01_ATW_Start_01_Inner_AERO",
+					"A_Island_Aeroset.AERO.A_Island_SD_AERO",
+					"Liar_AERO.AERO.Liar_AERO_02",
+					"aen_aeroset.AERO.JUG_Misty_Island_02_AERO"
+				]
+			},
+			{
+				"name": "Night",
+				"startHour": 22,
+				"aeros": [
+					"ase_aeroset.AERO.ASE_B_MoonCastle_AERO",
+					"EX01_VK_DailyQuest.AERO.VK_DailyQuest_AERO",
+					"EX01_VK_DailyQuest_Aeroset.AERO.VK_DailyQuest_02_AERO",
+					"Laknan_Aeroset.AERO.Laknan_1F_FINAL_AERO",
+					"Durion_Aero.AERO.Durion_01Named_AERO",
+					"Laknan_Aeroset.AERO.Laknan_1F_Boss_02_AERO",
+					"hnc_aeroset.AERO.Ancient_Forst_02_AERO",
+					"Lilith_Castle_AERO.AERO.Lilith_Castle_Demolition3NM_AERO",
+					"EX_Halloween_T42_AEROSet.AERO.EX_Halloween_Inside_Aeroset"
+				]
+			}
+		],
+		"cycleTime": 600000,
+		"blendTime": 5,
+		"changeEveryLoad": false,
+		"description": "Day/night cycle inspired by dynamic-day by saltymonkey"
+	},
+	"bluefog": {
+		"random": false,
+		"aeros": [
+			"anc_a_sd_aero.ANC_A_SD_Out_Aeroset"
+		],
+		"description": "BLUE FOG",
+		"printName": false,
+		"hideComments": true,
+		"cycleTime": 1200000,
+		"blendTime": 0
+	}
 }

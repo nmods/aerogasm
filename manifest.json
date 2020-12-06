@@ -9,15 +9,16 @@
 			"overwrite": false,
 			"hash": "2aa98501bd40432fb46936aceb3f2114bd249a479f806c3595820aa395701b9c"
 		},
-		"index.js": "df164c71269b8b8edc80373ba13c9c112923325223cfb640696f9e5fab6cbe39",
+		"index.js": "a41fda14a10dc13176458b14805c26957c8cb3dbadfd504982475b5f1fdfdc98",
 		"module.json": "8104bf92374545c92bb657b0b69aa1b5da6c134a48fb3a221c77dc5a64daf074",
 		"presets.json": {
 			"overwrite": false,
-			"hash": "3361cc00fcca3c505c6ea03a6843ae333be2d384caa9bf3a6f37cb7fa3e0c78c"
+			"hash": "98683920e25713334602f55a93e1a1b8fc1ba4650226ac08adb82ef669a59f43"
 		},
-		"readme.md": "59f296b1d5d15cffd24253cf176f8670bca2f4b5f769b7827a9a24e49dcc40c6"
+		"readme.md": "a67ce0a0634610509cd10b01e03d2012de3ea18842689eb1cc709e587b6803aa"
 	},
 	"defs": {
+		"C_LOAD_TOPO_FIN": "event",
 		"S_AERO": 1,
 		"S_START_ACTION_SCRIPT": 3
 	}
